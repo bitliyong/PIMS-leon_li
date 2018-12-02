@@ -1,0 +1,9 @@
+I:\VS2010Projects\PersonalInformationManageSystem\PersonalInfoManSysMainWindow\AboutInfo\bin\Release\AboutInfo.dll
+I:\VS2010Projects\PersonalInformationManageSystem\PersonalInfoManSysMainWindow\AboutInfo\bin\Release\AboutInfo.pdb
+I:\VS2010Projects\PersonalInformationManageSystem\PersonalInfoManSysMainWindow\AboutInfo\obj\Release\AboutInfo.dll
+I:\VS2010Projects\PersonalInformationManageSystem\PersonalInfoManSysMainWindow\AboutInfo\obj\Release\AboutInfo.pdb
+I:\VS2010Projects\PersonalInformationManageSystem\PersonalInfoManSysMainWindow\AboutInfo\bin\Release\VersionManagement.dll
+I:\VS2010Projects\PersonalInformationManageSystem\PersonalInfoManSysMainWindow\AboutInfo\bin\Release\VersionManagement.pdb
+I:\VS2010Projects\PersonalInformationManageSystem\PersonalInfoManSysMainWindow\AboutInfo\bin\Release\FileOperation.dll
+I:\VS2010Projects\PersonalInformationManageSystem\PersonalInfoManSysMainWindow\AboutInfo\bin\Release\FileOperation.pdb
+I:\VS2010Projects\PersonalInformationManageSystem\PersonalInfoManSysMainWindow\AboutInfo\obj\Release\AboutInfo.csprojResolveAssemblyReference.cache
