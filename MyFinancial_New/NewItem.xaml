@@ -1,0 +1,180 @@
+﻿<Window x:Class="MyFinancial.NewItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NewItem" Height="500" Width="300" OpacityMask="{x:Null}" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="/SelfEncouragementSystem;component/Images/b.jpg" />
+    </Window.Background>
+    <Window.Resources>
+        <Style x:Key="buttonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="KaiTi"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+        <Style x:Key="labelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="Times New Roman, KaiTi"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        </Style>
+        <Style x:Key="textboxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="Foreground" Value="#FFF86E33"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="IsReadOnly" Value="false"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+        <Style x:Key="textboxStyle2" TargetType="TextBox">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="Times New Roman, KaiTi"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="IsReadOnly" Value="false"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Text" Value="0" />
+            <Setter Property="TextAlignment" Value="Left"/>
+        </Style>
+        <Style x:Key="textboxStyle3" TargetType="TextBox">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="Height" Value="44"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="IsReadOnly" Value="true"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Text" Value="0" />
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Width" Value="120" />
+        </Style>
+        <Style x:Key="buttonStyle2" TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="KaiTi"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="Height" Value="44"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+        <Style x:Key="labelStyle2" TargetType="Label">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="comboboxStyle" TargetType="ComboBox">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Times New Roman, KaiTi"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="IsReadOnly" Value="false"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Text" Value="0" />
+        </Style>
+    </Window.Resources>
+
+    <WrapPanel Width="280" Height="450" Background="{x:Null}"
+                   HorizontalAlignment="Left" Orientation="Horizontal">
+        <Label Content="名称" Height="28" DockPanel.Dock="Left" 
+                   Margin="10,10,0,0" Name="label2"
+                   HorizontalAlignment="Left"
+                   HorizontalContentAlignment="Left"
+                   Width="50" Style="{StaticResource labelStyle}"
+                   Foreground="#FF32E586" />
+        <TextBox Margin="20,10,0,0" 
+                     Name="titleTb" Width="190"
+                     Foreground="PaleGreen" 
+                     Style="{StaticResource textboxStyle2}"
+                 Height="28"
+                 VerticalScrollBarVisibility="Auto"
+                 TextWrapping="WrapWithOverflow"
+                     Text="title" />
+        
+        <Label Content="描述"
+                   Height="28" Style="{StaticResource labelStyle}"
+                   DockPanel.Dock="Top"  Margin="10,10,0,0" 
+                   Name="label3" Width="50" HorizontalAlignment="Left"
+                   Foreground="#FFFF0D0D" />
+        <TextBox Margin="20,10,0,0" 
+                     Name="TextBox_details" Width="190"
+                     Foreground="PaleGreen" 
+                     Style="{StaticResource textboxStyle2}"
+                 Height="100"
+                 VerticalScrollBarVisibility="Auto"
+                 TextWrapping="WrapWithOverflow"
+                     Text="账户"/>
+        
+        <Label Content="类型" Style="{StaticResource labelStyle}"
+                   Height="28"
+                   DockPanel.Dock="Top"
+                   HorizontalAlignment="Left" Margin="10,10,0,0" 
+                   Name="label4" Width="50" Foreground="#FFFFF445"
+                   />
+        <ComboBox Width="190" Opacity="1" Name="typeCmb"
+                  DockPanel.Dock="Left" Margin="20,10,0,0"
+                  Style="{StaticResource comboboxStyle}">
+            <ComboBoxItem Content="收支" 
+                          IsSelected="True"/>
+            <ComboBoxItem Content="信用卡" 
+                          IsSelected="False"/>
+            <ComboBoxItem Content="现金" 
+                          IsSelected="False"/>
+        </ComboBox>
+        
+        <Label Content="初始值" Foreground="#FFCE6025" 
+                   Height="28" HorizontalAlignment="Left" 
+                   Margin="10,10,0,0" Name="label1" 
+                   VerticalAlignment="Top"
+                   Width="60" Style="{StaticResource labelStyle}"/>
+        <TextBox Margin="10,10,0,0"
+                     Name="initValTb" 
+                 Height="28" Width="190"
+                     Foreground="PaleGreen" 
+                     Style="{StaticResource textboxStyle2}"
+                 VerticalScrollBarVisibility="Auto"
+                 TextWrapping="WrapWithOverflow"
+                     Text="0"/>
+       <Button Content="OK" 
+                    Margin="10,10,0,0" Name="button1" 
+                    Style="{StaticResource buttonStyle}"
+                    Width="100" Click="button1_Click"
+                    Foreground="#FFE100EB" />
+        <Button Content="Cancel" 
+                    Margin="60,10,0,0" Name="button2"
+                    Width="100" Click="button2_Click"
+                    Foreground="#FF69D840" 
+                    Style="{StaticResource buttonStyle}"/>
+        <!--TextBox Height="170" 
+                         HorizontalAlignment="Center" 
+                         Margin="10,10,0,10" 
+                         Name="TextBox_details" 
+                         VerticalAlignment="Bottom" 
+                         Width="260" 
+                         Background="{x:Null}" 
+                         Foreground="#FFE50FA3"
+                         IsReadOnly="True" 
+                         VerticalScrollBarVisibility="Auto" 
+                         IsReadOnlyCaretVisible="False" 
+                         ForceCursor="False" SnapsToDevicePixels="False" 
+                         UseLayoutRounding="False" TextWrapping="WrapWithOverflow" /-->
+    </WrapPanel>
+</Window>

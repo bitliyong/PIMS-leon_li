@@ -1,0 +1,212 @@
+﻿<Window x:Class="MyFinancial.SetParams"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="设置参数" Height="500" Width="300" 
+        OpacityMask="{x:Null}" 
+        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Window.Background>
+        <ImageBrush ImageSource="/SelfEncouragementSystem;component/Images/b.jpg" />
+    </Window.Background>
+    <Window.Resources>
+        <Style x:Key="buttonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="KaiTi"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+        <Style x:Key="labelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="Times New Roman, KaiTi"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        </Style>
+        <Style x:Key="textboxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="Foreground" Value="#FFF86E33"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="IsReadOnly" Value="false"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+        <Style x:Key="textboxStyle2" TargetType="TextBox">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="Times New Roman, KaiTi"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="IsReadOnly" Value="false"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Text" Value="0" />
+            <Setter Property="TextAlignment" Value="Left"/>
+        </Style>
+        <Style x:Key="textboxStyle3" TargetType="TextBox">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="Height" Value="44"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="IsReadOnly" Value="true"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Text" Value="0" />
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Width" Value="120" />
+        </Style>
+        <Style x:Key="buttonStyle2" TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="KaiTi"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="Height" Value="44"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+        <Style x:Key="labelStyle2" TargetType="Label">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="comboboxStyle" TargetType="ComboBox">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Times New Roman, KaiTi"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="IsReadOnly" Value="false"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Text" Value="0" />
+        </Style>
+    </Window.Resources>
+
+    <WrapPanel Width="280" Height="450" Background="{x:Null}"
+                   HorizontalAlignment="Left" Orientation="Horizontal">
+        <Label Content="工资收入" Height="28" DockPanel.Dock="Left" 
+                   Margin="10,10,0,0" Name="salaryLb"
+                   HorizontalAlignment="Left"
+                   HorizontalContentAlignment="Left"
+                   Width="75" Style="{StaticResource labelStyle}"
+                   Foreground="#FF32E586" 
+               Visibility="Hidden"/>
+        <TextBox Margin="20,10,0,0" 
+                     Name="salaryTb" Width="165"
+                     Foreground="PaleGreen" 
+                     Style="{StaticResource textboxStyle2}"
+                 Height="28"
+                 VerticalScrollBarVisibility="Auto"
+                 TextWrapping="WrapWithOverflow"
+                     Text="0" 
+                 Visibility="Hidden"/>
+        
+        <Label Content="其他收入"
+                   Height="28" Style="{StaticResource labelStyle}"
+                   DockPanel.Dock="Top"  Margin="10,10,0,0" 
+                   Name="otherLb" Width="75" 
+               HorizontalAlignment="Left"
+                   Foreground="#FFFF0D0D" 
+               Visibility="Hidden"/>
+        <TextBox Margin="20,10,0,0"
+                     Name="otherTb" Width="165"
+                     Foreground="PaleGreen" 
+                     Style="{StaticResource textboxStyle2}"
+                 Height="28"
+                 VerticalScrollBarVisibility="Auto"
+                 TextWrapping="WrapWithOverflow"
+                     Text="0"
+                 Visibility="Hidden"/>
+
+        <Label Content="总支出"
+                   Height="28" Style="{StaticResource labelStyle}"
+                   DockPanel.Dock="Top"  Margin="10,10,0,0" 
+                   Name="totalOutLb" Width="75" 
+               HorizontalAlignment="Left"
+                   Foreground="#FFFF0D0D" 
+               Visibility="Hidden"/>
+        <TextBox Margin="20,10,0,0"
+                     Name="totalOutTb" Width="165"
+                     Foreground="PaleGreen" 
+                     Style="{StaticResource textboxStyle2}"
+                 Height="28"
+                 VerticalScrollBarVisibility="Auto"
+                 TextWrapping="WrapWithOverflow"
+                     Text="0"
+                 Visibility="Hidden"/>
+        <Label Content="总额"
+                   Height="28" Style="{StaticResource labelStyle}"
+                   DockPanel.Dock="Top"  Margin="10,10,0,0" 
+                   Name="totalLb" Width="75" 
+               HorizontalAlignment="Left"
+                   Foreground="#FFFF0D0D" 
+               Visibility="Hidden"/>
+        <TextBox Margin="20,10,0,0"
+                     Name="totalTb" Width="165"
+                     Foreground="PaleGreen" 
+                     Style="{StaticResource textboxStyle2}"
+                 Height="28"
+                 VerticalScrollBarVisibility="Auto"
+                 TextWrapping="WrapWithOverflow"
+                     Text="0"
+                 Visibility="Hidden"/>
+
+        <Label Content="输入口令" Foreground="#FFCE6025" 
+                   Height="28" HorizontalAlignment="Left" 
+                   Margin="10,10,0,0" Name="passwordLb" 
+                   VerticalAlignment="Top"
+                   Width="75" Style="{StaticResource labelStyle}"/>
+        <PasswordBox Margin="20,10,0,0"
+                 Name="passwordTb" 
+                 Height="28" Width="130"
+                     Foreground="PaleGreen" 
+                     Background="{x:Null}"
+                     Password="12345"
+                     VerticalContentAlignment="Center"
+                     KeyDown="passwordTb_KeyDown"
+                 />
+        <Button Content="GO" 
+                    Margin="10,10,0,0" Name="goBtn" 
+                    Style="{StaticResource buttonStyle}"
+                    Width="30" Click="buttonClick"
+                    Foreground="#FFE100EB" />
+       <Button Content="SET" 
+                    Margin="10,30,0,0" Name="setBtn" 
+                    Style="{StaticResource buttonStyle}"
+                    Width="100" Click="buttonClick"
+                    Foreground="#FFE100EB" 
+               Visibility="Hidden"/>
+        <Button Content="Cancel" 
+                    Margin="60,30,0,0" Name="cancelBtn"
+                    Width="100" Click="buttonClick"
+                    Foreground="#FF69D840" 
+                    Style="{StaticResource buttonStyle}"
+                Visibility="Hidden"
+                />
+        <!--TextBox Height="170" 
+                         HorizontalAlignment="Center" 
+                         Margin="10,10,0,10" 
+                         Name="TextBox_details" 
+                         VerticalAlignment="Bottom" 
+                         Width="260" 
+                         Background="{x:Null}" 
+                         Foreground="#FFE50FA3"
+                         IsReadOnly="True" 
+                         VerticalScrollBarVisibility="Auto" 
+                         IsReadOnlyCaretVisible="False" 
+                         ForceCursor="False" SnapsToDevicePixels="False" 
+                         UseLayoutRounding="False" TextWrapping="WrapWithOverflow" /-->
+    </WrapPanel>
+</Window>

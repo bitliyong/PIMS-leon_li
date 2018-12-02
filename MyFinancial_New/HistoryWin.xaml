@@ -1,0 +1,16 @@
+﻿<Window x:Class="MyFinancial.HistoryWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="历史记录" Height="600" Width="800"
+        FontFamily="Times New Roman, KaiTi"
+        FontSize="14"
+        Loaded="Window_Loaded"
+        KeyDown="Window_KeyDown"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <RichTextBox Name="historyRtf"
+                     Background="BurlyWood"
+                     VerticalScrollBarVisibility="Auto"
+                     />
+    </Grid>
+</Window>
