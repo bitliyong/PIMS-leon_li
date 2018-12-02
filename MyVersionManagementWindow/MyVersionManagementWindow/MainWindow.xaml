@@ -1,0 +1,435 @@
+﻿<Window x:Class="MyVersionManagementWindowNamespace.VersionManagementMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="720" Width="1280"
+        WindowStartupLocation="CenterScreen"
+        Background="PaleGoldenrod"
+        FontFamily="Times New Roman, KaiTi"
+        FontSize="16" 
+        Loaded="Window_Loaded"
+        Closing="Window_Closing"
+        KeyDown="Window_KeyDown"
+        xmlns:lib = "clr-namespace:MyVersionManagementLib;assembly=MyVersionManagementLib">
+    <Window.Resources>
+        <HierarchicalDataTemplate ItemsSource="{Binding Path=SolutionProjectsCollection}" 
+                                  DataType="{x:Type lib:M_SolutionClass}">
+            <TextBlock Text="{Binding Path=SolutionName, Mode=TwoWay}">
+                
+            </TextBlock>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate ItemsSource="{Binding Path=ProjectVersionCollection}" 
+                                  DataType="{x:Type lib:M_ProjectClass}">
+            <TextBlock Text="{Binding Path=ProjectName, Mode=TwoWay}">
+
+            </TextBlock>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate ItemsSource="{Binding Path=NULL}" 
+                                  DataType="{x:Type lib:M_ProjectVersionClass}">
+            <TextBlock Text="{Binding Path=ProjectVersionName, Mode=TwoWay, NotifyOnSourceUpdated=True}">
+
+            </TextBlock>
+        </HierarchicalDataTemplate>
+
+        <Style TargetType="TreeViewItem">
+            <Setter Property="IsExpanded" 
+                Value="{Binding IsExpanded, 
+                        Mode=OneWay, 
+                        RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}}" />
+        </Style>
+    </Window.Resources>
+    <Grid Name="baseGrid"
+          >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <!--Menu-->
+        <Menu Grid.Row="0"
+              Grid.Column="0"
+              Grid.ColumnSpan="4"
+              Margin="0"
+              Background="AliceBlue"
+              VerticalContentAlignment="Center">
+            <MenuItem Header="_File"
+                      VerticalContentAlignment="Center">
+                      <MenuItem Header="_New Solution"
+                                Click="MenuItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Edit">
+                <MenuItem Header="_Add Project to Current Solution"
+                                Click="MenuItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Project">
+                <MenuItem Header="_Archive Project"
+                                Click="MenuItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About"
+                                Click="MenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+        <!--Treeview-->
+        <TreeView Grid.Row="1"
+                  Grid.RowSpan="14"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="1"
+                  Margin="5"
+                  Name="_123"
+                  TreeViewItem.Selected="TreeView_Selected">
+            <TreeViewItem Name="solutionsViewTv"
+                          Header="My Solutions"
+                          ItemsSource="{Binding}">
+                
+            </TreeViewItem>
+        </TreeView>
+        
+        <TabControl Grid.Row="1"
+                    Grid.RowSpan="4"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="3"
+                    Margin="2,5,5,2">
+            <TabItem Header="Solution">
+                <Grid Name="solutionInfo">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0"
+                       Grid.Column="0"
+                           Margin="2"
+                       Content="Title: ">
+
+                    </Label>
+                    <TextBox Name="solutoinTitleTb"
+                             Grid.Row="0"
+                             Grid.Column="1"
+                             Margin="2"
+                             VerticalContentAlignment="Center">
+                        
+                    </TextBox>
+                    
+                    <Label Grid.Row="1"
+                       Grid.Column="0"
+                           Margin="2"
+                       Content="Description: ">
+
+                    </Label>
+                    <TextBox Name="solutionDescriptionTb"
+                             Grid.Row="1"
+                             Grid.RowSpan="2"
+                             Grid.Column="1"
+                             Margin="2"
+                             VerticalContentAlignment="Top"
+                             TextWrapping="Wrap"
+                             TextChanged="descriptionTb_TextChanged">
+
+                    </TextBox>
+
+                    <!--RichTextBox Name="solutionDescriptionRtb"
+                                 Grid.Row="1"
+                                 Grid.RowSpan="2"
+                                 Grid.Column="1"
+                                 Margin="2"
+                                 VerticalContentAlignment="Top">
+                        <RichTextBox.Document>
+                            <FlowDocument>
+                                <Paragraph>
+                                    <Run Name="solutionDescriptionRun"
+                                         TargetUpdated="solutionDescriptionRun_TargetUpdated" 
+                                         >
+                                        
+                                    </Run>
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox.Document>
+                    </RichTextBox-->
+                    
+                </Grid>
+                
+            </TabItem>
+        </TabControl>
+        <TabControl Grid.Row="5"
+                    Grid.RowSpan="5"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="3"
+                    Margin="2,2,5,2">
+            <TabItem Header="Project">
+                <Grid Name="projectInfo">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="40"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0"
+                       Grid.Column="0"
+                           Margin="2"
+                       Content="Name: ">
+
+                    </Label>
+                    <TextBox Name="projectNameTb"
+                             Grid.Row="0"
+                             Grid.Column="1"
+                             Margin="2"
+                             VerticalContentAlignment="Center">
+
+                    </TextBox>
+                    <Label Grid.Row="1"
+                       Grid.Column="0"
+                           Margin="2"
+                       Content="Location: ">
+
+                    </Label>
+                    <TextBox Name="projectLocationTb"
+                             Grid.Row="1"
+                             Grid.Column="1"
+                             Margin="2"
+                             IsReadOnly="True"
+                             VerticalContentAlignment="Center">
+
+                    </TextBox>
+                    <Button Name="viewLocationBtn"
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Margin="2"
+                            Content="..."
+                            VerticalContentAlignment="Top"
+                            ToolTip="View In Windows Explorer"
+                            Click="projectBtn_Click">
+                        
+                    </Button>
+                    <Label Grid.Row="2"
+                       Grid.Column="0"
+                           Margin="2"
+                       Content="Workspace: ">
+
+                    </Label>
+                    <TextBox Name="projectWorkspaceTb"
+                             Grid.Row="2"
+                             Grid.Column="1"
+                             Margin="2"
+                             IsReadOnly="False"
+                             VerticalContentAlignment="Center">
+
+                    </TextBox>
+                    <Button Name="viewWorkspaceBtn"
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Margin="2,0,2,2"
+                            Content="..."
+                            VerticalContentAlignment="Top"
+                            ToolTip="View In Windows Explorer"
+                            Click="projectBtn_Click" Height="26" VerticalAlignment="Bottom">
+
+                    </Button>
+                    <Label Grid.Row="3"
+                       Grid.Column="0"
+                           Margin="2"
+                       Content="Description: ">
+
+                    </Label>
+                    <TextBox Name="projectDescriptionTb"
+                             Grid.Row="3"
+                             Grid.RowSpan="2"
+                             Grid.Column="1"
+                             Margin="2"
+                             VerticalContentAlignment="Top"
+                             TextWrapping="Wrap"
+                             TextChanged="descriptionTb_TextChanged">
+
+                    </TextBox>
+                    <!--RichTextBox Name="projectDescriptionRtb"
+                                 Grid.Row="3"
+                                 Grid.RowSpan="2"
+                                 Grid.Column="1"
+                                 Margin="2"
+                                 VerticalContentAlignment="Top">
+                        <RichTextBox.Document>
+                            <FlowDocument>
+                                <Paragraph>
+                                    <Run Name="projectDescriptionRun">
+
+                                    </Run>
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox.Document>
+                    </RichTextBox-->
+                </Grid>
+
+            </TabItem>
+        </TabControl>
+        <TabControl Grid.Row="10"
+                    Grid.RowSpan="5"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="3"
+                    Margin="2,2,5,5">
+            <TabItem Header="Version">
+                <Grid Name="versionInfo">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="40"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0"
+                       Grid.Column="0"
+                           Margin="2"
+                       Content="Version: ">
+
+                    </Label>
+                    <TextBox Name="projectVersionTb"
+                             Grid.Row="0"
+                             Grid.Column="1"
+                             Margin="2"
+                             IsReadOnly="True"
+                             VerticalContentAlignment="Center">
+
+                    </TextBox>
+                    <Label Grid.Row="1"
+                       Grid.Column="0"
+                           Margin="2"
+                       Content="Location: ">
+
+                    </Label>
+                    <TextBox Name="projectVersionLocationTb"
+                             Grid.Row="1"
+                             Grid.Column="1"
+                             Margin="2"
+                             IsReadOnly="True"
+                             VerticalContentAlignment="Center">
+
+                    </TextBox>
+                    <Button Name="viewVersionLocationBtn"
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Margin="2"
+                            Content="..."
+                            VerticalContentAlignment="Top"
+                            ToolTip="View In Windows Explorer"
+                            Click="projectVersionBtn_Click">
+
+                    </Button>
+                    <Button Name="openBtn"
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Margin="2"
+                            Content="..."
+                            VerticalContentAlignment="Top"
+                            ToolTip="Open Project"
+                            Click="projectVersionBtn_Click">
+
+                    </Button>
+                    <Label Grid.Row="2"
+                       Grid.Column="0"
+                           Margin="2"
+                       Content="Description: ">
+
+                    </Label>
+                    <TextBox Name="projectVersionDescriptionTb"
+                             Grid.Row="3"
+                             Grid.RowSpan="2"
+                             Grid.Column="1"
+                             Margin="2"
+                             VerticalContentAlignment="Top"
+                             TextWrapping="Wrap"
+                             TextChanged="descriptionTb_TextChanged">
+
+                    </TextBox>
+                    <!--RichTextBox Name="projectVersionDescriptionRtb"
+                                 Grid.Row="2"
+                                 Grid.RowSpan="3"
+                                 Grid.Column="1"
+                                 Grid.ColumnSpan="1"
+                                 Margin="2"
+                                 VerticalContentAlignment="Top">
+                        <RichTextBox.Document>
+                            <FlowDocument>
+                                <Paragraph>
+                                    <Run Name="projectVersionDescriptionRun">
+
+                                    </Run>
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox.Document>
+                    </RichTextBox-->
+                </Grid>
+
+            </TabItem>
+        </TabControl>
+        <StatusBar Name="statusSb"
+                   Grid.Row="15"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="4"
+                   Margin="2"
+                   Background="Transparent">
+            <StatusBarItem >
+                <StackPanel Orientation="Horizontal">
+                    <ProgressBar Name="processBar"
+                             Width="300"
+                             Height="20"
+                             Maximum="1"
+                             Minimum="0"
+                             Value="0.33">
+
+                    </ProgressBar>
+                    <Label Name="percentLb"
+                        Margin="2"
+                       Content="33.3%">
+
+                    </Label>
+                    <Label Name="resultLb"
+                        Margin="2"
+                       Content="Archive Processing...">
+
+                    </Label>
+                    <Label Name="otherLb"
+                        Margin="2"
+                           Content="Other Informations...">
+
+                    </Label>
+                </StackPanel>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>

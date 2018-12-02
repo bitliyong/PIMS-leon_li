@@ -1,0 +1,250 @@
+﻿<Window x:Class="MyVersionManagementWindowNamespace.ArchiveProjectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ArchiveProjectWindow" Height="360" Width="480"
+        FontFamily="Times New Roman,KaiTi"
+        FontSize="16" Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen">
+    <Grid Background="Lavender">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="70"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0"
+               Grid.Column="0"
+               Grid.ColumnSpan="4"
+               Margin="2"
+               Content="Archive A Project"
+               HorizontalAlignment="Center">
+
+        </Label>
+
+        <Label Grid.Row="1"
+               Grid.Column="0"
+               Margin="2"
+               Content="Name: ">
+
+        </Label>
+        <TextBox Name="projectNameTb"
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Margin="2"
+                 VerticalContentAlignment="Center">
+
+        </TextBox>
+
+        <Label Grid.Row="2"
+               Grid.Column="0"
+               Margin="2"
+               Content="Location: ">
+
+        </Label>
+        <TextBox Name="projectLocationTb"
+                 Grid.Row="2"
+                 Grid.RowSpan="1"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Margin="2"
+                 VerticalContentAlignment="Top"
+                 IsReadOnly="True"
+                 ToolTip="The Contain Folder of Project"
+                 TextWrapping="Wrap">
+
+        </TextBox>
+        <Label Grid.Row="3"
+               Grid.Column="0"
+               Margin="2"
+               Content="Workspace: ">
+
+        </Label>
+        <TextBox Name="projectWorkspaceTb"
+                 Grid.Row="3"
+                 Grid.RowSpan="1"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Margin="2"
+                 VerticalContentAlignment="Top"
+                 IsReadOnly="True"
+                 ToolTip="The Contain Folder of Archived Project"
+                 TextWrapping="Wrap">
+
+        </TextBox>
+
+        <Button Name="viewLocationBtn"
+                Grid.Row="2"
+                Grid.Column="3"
+                Margin="3"
+                Content="..."
+                VerticalContentAlignment="Top"
+                ToolTip="view the folder of this project"
+                Click="projectBtn_Click">
+
+        </Button>
+        <Button Name="selectOrViewWorkspaceBtn"
+                Grid.Row="3"
+                Grid.Column="3"
+                Margin="3"
+                Content="..."
+                VerticalContentAlignment="Top"
+                ToolTip="select(not recommended) or view the folder of archived project"
+                Click="projectBtn_Click">
+
+        </Button>
+
+        <TabControl Grid.Row="4"
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="4"
+                        >
+            <TabItem Name="versionTab"
+                         Header="Base Version"
+                     ToolTip="更新为本指定版本的下一版本"
+                         >
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="3"
+                           Grid.Column="1"
+                           Content="Main: ">
+
+                    </Label>
+                    <ComboBox Name="mainCmb"
+                              Grid.Row="1"
+                              Grid.Column="2"
+                              Margin="2"
+                              >
+
+                    </ComboBox>
+
+                    <Label Grid.Row="3"
+                           Grid.Column="3"
+                           Content="Sub: ">
+
+                    </Label>
+                    <ComboBox Name="subCmb"
+                              Grid.Row="1"
+                              Grid.Column="4"
+                              Margin="2"
+                              >
+
+                    </ComboBox>
+
+                    <Label Grid.Row="3"
+                           Grid.Column="5"
+                           Content="Stage: ">
+
+                    </Label>
+                    <ComboBox Name="stageCmb"
+                              Grid.Row="1"
+                              Grid.Column="6"
+                              Margin="2"
+                              >
+
+                    </ComboBox>
+
+                    <Label Grid.Row="3"
+                           Grid.Column="7"
+                           Content="State: ">
+
+                    </Label>
+                    <ComboBox Name="greekCmb"
+                              Grid.Row="1"
+                              Grid.Column="8"
+                              Margin="2"
+                              >
+
+                    </ComboBox>
+
+
+                </Grid>
+
+            </TabItem>
+
+        </TabControl>
+
+
+
+
+
+        <Label Grid.Row="6"
+               Grid.Column="0"
+               Margin="2"
+               Content="Description: ">
+
+        </Label>
+        <TextBox Name="projectDescriptionTb"
+                 Grid.Row="6"
+                 Grid.RowSpan="3"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Margin="2"
+                 VerticalContentAlignment="Top"
+                 TextWrapping="Wrap">
+
+        </TextBox>
+
+        <Button Name="okBtn"
+                Grid.Row="9"
+                Grid.Column="2"
+                Margin="3"
+                Content="OK"
+                VerticalContentAlignment="Top"
+                ToolTip="create a project"
+                Click="projectBtn_Click">
+
+        </Button>
+        <Button Name="cancleBtn"
+                Grid.Row="9"
+                Grid.Column="3"
+                Margin="3"
+                Content="Cancel"
+                VerticalContentAlignment="Top"
+                ToolTip="canceled to create a project"
+                Click="projectBtn_Click">
+
+        </Button>
+
+        <StatusBar Grid.Row="9"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Margin="3"
+                   ToolTip="Operate Information"
+                   >
+            <StatusBarItem Name="infoSbi"
+                           Content="information...">
+
+            </StatusBarItem>
+        </StatusBar>
+
+    </Grid>
+</Window>
