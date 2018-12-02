@@ -211,10 +211,6 @@ namespace MyFinancial
 
             //滚动到最后
             this.richTextBox1.ScrollToEnd();
-
-            //显示最新结果
-            this.inOutGrid.SelectedIndex = this.iebfCollection.Count - 1;
-            this.inOutGrid.ScrollIntoView(this.inOutGrid.Items[this.inOutGrid.SelectedIndex]);
         }
 
         /// <summary>
@@ -369,7 +365,11 @@ namespace MyFinancial
                 else if (tc.SelectedItem.Equals(this.inOutDetails))
                 {
                     this.inOutGrid.ItemsSource = this.iebfCollection;
-                    //MessageBox.Show("收支明细");
+
+                    //显示最新结果
+                    this.inOutGrid.SelectedIndex = this.iebfCollection.Count - 1;
+                    this.inOutGrid.UpdateLayout();
+                    this.inOutGrid.ScrollIntoView(this.inOutGrid.SelectedItem);
                 }
             }
         }
