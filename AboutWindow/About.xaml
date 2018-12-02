@@ -1,0 +1,177 @@
+﻿<Window x:Class="About.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="About Window" Height="340" Width="405" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown" Loaded="Window_Loaded">
+    <DockPanel Width="400" Height="330" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <StackPanel Margin="0" HorizontalAlignment="Left">
+            <TabControl Margin="0"
+                        Height="280"
+                        Background="Coral"
+                SelectionChanged="TabControl_SelectionChanged">
+                <TabItem Header="版本信息">
+                    <StackPanel>
+                    <StackPanel
+                  Margin="0" DockPanel.Dock="Top" 
+                  Background="Cornsilk">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Margin="0,5,0,0" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Top"
+                       FontFamily="Times New Roman, KaiTi"
+                       FontSize="12"
+                       FontWeight="Bold"
+                       Foreground="SeaGreen">
+                                Product Name:
+                            </Label>
+                            <TextBox Name="name" 
+                         Margin="7,5,0,0" 
+                         HorizontalAlignment="Left" 
+                         VerticalAlignment="Top"
+                         FontFamily="Times New Roman, KaiTi"
+                         FontSize="15"
+                         FontWeight="Bold" 
+                         Background="Transparent"
+                         Foreground="SeaGreen"
+                         VerticalContentAlignment="Center" 
+                         Padding="2" 
+                         BorderThickness="0"
+                         IsReadOnly="True">
+                                产品name_xx_xx
+                            </TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Margin="0,5,0,0" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Top"
+                       FontFamily="Times New Roman, KaiTi"
+                       FontSize="12"
+                       FontWeight="Bold" 
+                       Foreground="SeaGreen">
+                                Product Version:
+                            </Label>
+
+                            <TextBox Name="version" Margin="0,5,0,0" 
+                         HorizontalAlignment="Left" 
+                         VerticalAlignment="Top"
+                         FontFamily="Times New Roman, KaiTi"
+                         FontSize="15"
+                         FontWeight="Bold" 
+                         Background="Transparent"
+                         Foreground="SeaGreen"
+                         VerticalContentAlignment="Center"
+                         Padding="2" 
+                         BorderThickness="0"
+                             IsReadOnly="True">
+                                V1.0.0
+                            </TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Margin="0,5,0,0" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Top"
+                       FontFamily="Times New Roman, KaiTi"
+                       FontSize="12"
+                       FontWeight="Bold" 
+                       Foreground="SeaGreen">
+                                Copyright:
+                            </Label>
+                            <TextBox Name="copyright" Margin="29,5,0,0" 
+                         HorizontalAlignment="Left" 
+                         VerticalAlignment="Top"
+                         FontFamily="Times New Roman, KaiTi"
+                         FontSize="15"
+                         FontWeight="Bold" 
+                         Background="Transparent"
+                         Foreground="SeaGreen"
+                         VerticalContentAlignment="Center"
+                         Padding="2" 
+                         BorderThickness="0"
+                         IsReadOnly="True">
+                                BIT LION
+                            </TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Margin="0,5,0,0" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Top"
+                       FontFamily="Times New Roman, KaiTi"
+                       FontSize="12"
+                       FontWeight="Bold" Foreground="SeaGreen">
+                                Author:
+                            </Label>
+                            <TextBox Name="author" Margin="45,5,0,0" 
+                         HorizontalAlignment="Left" 
+                         VerticalAlignment="Top"
+                         FontFamily="Times New Roman, KaiTi"
+                         FontSize="15"
+                         FontWeight="Bold" 
+                         Background="Transparent"
+                         Foreground="SeaGreen"
+                         VerticalContentAlignment="Center"
+                         Padding="2" 
+                         BorderThickness="0"
+                         IsReadOnly="True">
+                                Youn Li
+                            </TextBox>
+                        </StackPanel>
+                    </StackPanel>
+                    <Grid Margin="0" DockPanel.Dock="Top" Background="Beige">
+                        <TextBox Name="description"
+                         Height="150" 
+                                 Width="400"
+                         Margin="0" 
+                         Background="Azure" 
+                         FontFamily="Times New Roman, KaiTi" 
+                         FontWeight="Bold" 
+                         Foreground="RoyalBlue" 
+                         IsReadOnly="True" 
+                         TextWrapping="Wrap" 
+                         HorizontalAlignment="Left" 
+                         VerticalAlignment="Top"
+                         VerticalScrollBarVisibility="Auto" >
+                            Description:
+                        </TextBox>
+                    </Grid>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="历史版本">
+                    <StackPanel Background="DarkKhaki">
+                        <DataGrid Name="history" 
+                      HorizontalAlignment="Left"
+                      Margin="0" Width="400"
+                      VerticalAlignment="Top"
+                      Background="Transparent"
+                      GridLinesVisibility="None" 
+                      AutoGenerateColumns="False"
+                      CanUserAddRows="False"
+                      HeadersVisibility="Column"
+                      HorizontalContentAlignment="Center"
+                      IsReadOnly="True"
+                      CanUserSortColumns="True">
+                            <DataGrid.ColumnHeaderStyle >
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Height" Value="30"></Setter>
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="版本号" 
+                                                    Width="100"
+                                                    Binding="{Binding Path=Version}"/>
+                                <DataGridTextColumn Header="描述" 
+                                                    Binding="{Binding Path=Description}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+            <Grid Height="35" DockPanel.Dock="Bottom" 
+                  Background="Linen">
+                        <Button Name="OK" Width="60" Height="22" 
+                        Margin="180,4,10,4" Click="Btn_Click">
+                            _OK
+                        </Button>
+                    </Grid>
+                </StackPanel>
+    </DockPanel>
+</Window>
